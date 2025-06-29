@@ -1,68 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Axiom</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiom</title>
+    <!-- 引入 Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- 引入 Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- 引入 Material Components Web CSS -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #fef7ff; /* MD3 背景色 */
+            color: #1d1b20; /* MD3 文字色 */
+        }
 
-  <!-- Material 3 CSS Theme -->
-  <link rel="stylesheet" href="https://unpkg.com/@material/web@latest/components/appbar/md-app-bar.min.js">
-  <link rel="stylesheet" href="https://unpkg.com/@material/web@latest/components/navigation-bar/md-navigation-bar.min.js">
+        .app-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 64px;
+            background-color: #6750a4; /* MD3 主色 */
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
+        .app-bar-title {
+            font-size: 22px;
+            font-weight: 400;
+            margin-left: 16px;
+        }
 
-    header {
-      background-color: #6200ee;
-      color: white;
-    }
+        .nav-container {
+            display: flex;
+            margin-top: 64px;
+            height: calc(100vh - 64px);
+        }
 
-    main {
-      flex: 1;
-      padding: 16px;
-      background-color: #f5f5f5;
-    }
+        .nav-drawer {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 1px solid #e7e0ec;
+            padding: 16px 0;
+        }
 
-    footer {
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-  </style>
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            margin: 0 8px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .nav-item:hover {
+            background-color: #e8def8;
+        }
+
+        .nav-item.active {
+            background-color: #e8def8;
+        }
+
+        .nav-item-icon {
+            margin-right: 12px;
+            color: #49454f;
+        }
+
+        .nav-item-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1b20;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 24px;
+            background-color: #fef7ff;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .card-content {
+            font-size: 14px;
+            color: #49454f;
+        }
+    </style>
 </head>
 <body>
+    <!-- 顶部应用栏 -->
+    <header class="app-bar">
+        <span class="material-icons">menu</span>
+        <h1 class="app-bar-title">Axiom</h1>
+    </header>
 
-  <!-- ActionBar / App Bar -->
-  <header>
-    <md-app-bar title="Axiom"></md-app-bar>
-  </header>
+    <!-- 主布局 -->
+    <div class="nav-container">
+        <!-- 导航抽屉 -->
+        <nav class="nav-drawer">
+            <div class="nav-item active">
+                <span class="material-icons nav-item-icon">home</span>
+                <span class="nav-item-text">首页</span>
+            </div>
+            <div class="nav-item">
+                <span class="material-icons nav-item-icon">search</span>
+                <span class="nav-item-text">搜索</span>
+            </div>
+            <div class="nav-item">
+                <span class="material-icons nav-item-icon">favorite</span>
+                <span class="nav-item-text">收藏</span>
+            </div>
+            <div class="nav-item">
+                <span class="material-icons nav-item-icon">settings</span>
+                <span class="nav-item-text">设置</span>
+            </div>
+            <div class="nav-item">
+                <span class="material-icons nav-item-icon">help</span>
+                <span class="nav-item-text">帮助</span>
+            </div>
+        </nav>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Welcome to Axiom</h1>
-    <p>paragraph.</p>
-  </main>
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <div class="card">
+                <h2 class="card-title">欢迎来到 Axiom</h2>
+                <p class="card-content">这是一个基于 Material Design 3 设计的网页示例。顶部是应用栏，左侧是导航抽屉。</p>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Material Design 3 特性</h2>
+                <p class="card-content">MD3 引入了动态色彩、更新的组件形状和新的交互模式，提供了更加个性化和灵活的设计系统。</p>
+            </div>
+        </main>
+    </div>
 
-  <!-- Bottom Navigation Bar -->
-  <footer>
-    <md-navigation-bar active-item="home">
-      <md-navigation-bar-item label="Home" value="home" icon="home"></md-navigation-bar-item>
-      <md-navigation-bar-item label="Modules" value="modules" icon="view_module"></md-navigation-bar-item>
-      <md-navigation-bar-item label="Settings" value="settings" icon="settings"></md-navigation-bar-item>
-    </md-navigation-bar>
-  </footer>
-
-  <!-- Load Material 3 Web Components -->
-  <script type="module">
-    import '@material/web/components/appbar/md-app-bar.js';
-    import '@material/web/components/navigation-bar/md-navigation-bar.js';
-    import '@material/web/components/navigation-bar/navigation-bar-item.js';
-  </script>
-
+    <!-- 引入 Material Components Web JS -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>
+        // 初始化 Material 组件
+        document.addEventListener('DOMContentLoaded', function() {
+            // 这里可以添加交互逻辑
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
